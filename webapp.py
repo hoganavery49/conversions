@@ -21,14 +21,29 @@ def render_meters_conversion():
 @app.route("/response")
 def render_response():
     if 'pounds' in request.args and request.args['pounds'].isdigit():
-        reply = round(float(request.args['pounds'])*0.45359237, 2)
-        unit = 'kilograms'
+        #reply = round(float(request.args['pounds'])*0.45359237, 2)
+        #unit = 'kilograms'
+        try:
+            reply = round(float(request.args['pounds'])*0.45359237, 2)
+            unit = 'kilograms'
+        except ValueError:
+            return render_template('response.html', response = 'Error, invalid input', unit = '')
     elif 'grams' in request.args and request.args['grams'].isdigit():
-        reply = float(request.args['grams'])/float(request.args['molar-mass'])
-        unit = 'moles'
+        #reply = float(request.args['grams'])/float(request.args['molar-mass'])
+        #unit = 'moles'
+        try:
+            reply = float(request.args['grams'])/float(request.args['molar-mass'])
+            unit = 'moles'
+        except ValueError:
+            return render_template('response.html', response = 'Error, invalid input', unit = '')
     elif 'meters' in request.args and request.args['meters'].isdigit():
-        reply = float(request.args['meters'])*0.0000000000000015
-        unit = 'femtometers'
+        #reply = float(request.args['meters'])*0.0000000000000015
+        #unit = 'femtometers'
+        try:
+            reply = float(request.args['meters'])*0.0000000000000015
+            unit = 'femtometers'
+        except ValueError:
+            return render_template('response.html', response = 'Error, invalid input', unit = '')
     else:
         reply = 'Error, invalid input'
         unit = ''
