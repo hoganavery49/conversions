@@ -21,7 +21,7 @@ def render_meters_conversion():
 @app.route("/response")
 def render_response():
     if 'pounds' in request.args and request.args['pounds'].isdigit():
-        reply = float(request.args['pounds'])*0.45359237
+        reply = round(float(request.args['pounds'])*0.45359237, 2)
         unit = 'kilograms'
     elif 'grams' in request.args and request.args['grams'].isdigit():
         reply = float(request.args['grams'])/float(request.args['molar-mass'])
