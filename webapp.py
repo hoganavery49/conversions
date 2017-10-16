@@ -21,14 +21,18 @@ def render_meters_conversion():
 @app.route("/response")
 def render_response():
     if 'pounds' in request.args and request.args['pounds'].isdigit():
-        reply = float(request.args['pounds'])*0.45359237 + 'kilograms'
+        reply = float(request.args['pounds'])*0.45359237
+        unit = 'kilograms'
     elif 'grams' in request.args and request.args['grams'].isdigit():
-        reply = float(request.args['grams'])/float(request.args['molar-mass']) + 'moles'
+        reply = float(request.args['grams'])/float(request.args['molar-mass'])
+        unit = 'moles'
     elif 'meters' in request.args and request.args['meters'].isdigit():
-        reply = float(request.args['meters'])*0.0000000000000015 + 'femtometers'
+        reply = float(request.args['meters'])*0.0000000000000015
+        unit = 'femtometers'
     else:
         reply = 'Error, invalid input'
-    return render_template('response.html', response = reply)
+        unit = ''
+    return render_template('response.html', response = reply, unit = unit)
     
 if __name__=="__main__":
     app.run(debug=False, port=54321)
