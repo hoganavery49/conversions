@@ -20,11 +20,11 @@ def render_meters_conversion():
 
 @app.route("/response")
 def render_response():
-    if 'pounds' in request.args and 'pounds'.isdigit():
+    if 'pounds' in request.args and request.args['pounds'].isdigit():
         reply = float(request.args['pounds'])*0.45359237
-    elif 'grams' in request.args and 'grams'.isdigit():
+    elif 'grams' in request.args and request.args['grams'].isdigit():
         reply = float(request.args['grams'])/float(request.args['molar-mass'])
-    elif 'meters' in request.args and 'meters'.isdigit():
+    elif 'meters' in request.args and request.args['meters'].isdigit():
         reply = float(request.args['meters'])*0.0000000000000015
     else:
         reply = 'Error, invalid input'
