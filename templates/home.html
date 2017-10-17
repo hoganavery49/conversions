@@ -1,20 +1,19 @@
-<!DOCTYPE html>
-<html>
-	<head>
-		<title>Home</title>
-	</head>
-	
-	<body>
-		<a href="pounds-to-kilos">
-			<button name="Pounds to Kilograms">lbs/kgs</button>
-		</a>
-		<br><br>
-		<a href="grams-to-moles">
-			<button name="Grams to Moles">g/mol</button>
-		</a>
-		<br><br>
-		<a href="meters-to-femtometers">
-			<button name="Meters to Femtometers">m/fm</button>
-		</a>
-	</body>
-</html>
+{% extends "layout.html" %}
+
+{% set active_page = "home" %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+	<a href="lbs-to-kgs">
+		<button name="Pounds to Kilograms">lbs/kgs</button>
+	</a>
+	<br><br>
+	<a href="grams-to-moles">
+		<button name="Grams to Moles">g/mol</button>
+	</a>
+	<br><br>
+	<a href="meters-to-femtometers">
+		<button name="Meters to Femtometers">m/fm</button>
+	</a>
+{% endblock %}
