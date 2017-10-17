@@ -1,15 +1,14 @@
-<!DOCTYPE html>
-<html>
-	<head>
-		<title></title>
-	</head>
-	
-	<body>
-		<form action='/response'>
-			Pounds:<br>
-			<input type="text" name="pounds">
-			<br><br>
-			<input type="submit">
-		</form>
-	</body>
-</html>
+{% extends "layout.html" %}
+
+{% set active_page = "lbs-to-kgs" %}
+
+{% block title %}Pounds to Kilograms{% endblock %}
+
+{% block content %}
+	<form action='/response'>
+		Pounds:<br>
+		<input type="text" name="pounds">
+		<br><br>
+		<input type="submit">
+	</form>
+{% endblock %}

@@ -1,11 +1,10 @@
-<!DOCTYPE html>
-<html>
-	<head>
-		<title>Response</title>
-	</head>
-	
-	<body>
-		<h1>Response:</h1>
-		<p>{{response}} {{unit}}</p>
-	</body>
-</html>
+{% extends "layout.html" %}
+
+{% set active_page = "Response" %}
+
+{% block title %}Response{% endblock %}
+
+{% block content %}
+	<h1>Response:</h1>
+	<p>{{response}} {{unit}}</p>
+{% endblock %}
