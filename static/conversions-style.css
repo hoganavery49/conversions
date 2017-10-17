@@ -1,0 +1,10 @@
+form {
+	margin: 15px;
+}
+
+button {
+	margin: 15px;
+	color: white;
+	background-color: green;
+	border-radius: 10px;
+}
